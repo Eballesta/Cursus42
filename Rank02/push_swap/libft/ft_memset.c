@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eballest <eballest@student.42barcel>       +#+  +:+       +#+        */
+/*   By: eballest <eballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 15:00:46 by eballest          #+#    #+#             */
-/*   Updated: 2022/09/20 16:35:53 by eballest         ###   ########.fr       */
+/*   Updated: 2023/07/09 13:25:20 by eballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	*ft_memset(void *b, int c, size_t len)
 	{
 		a[i] = c;
 		i++;
-	}	
+	}
 	return (b);
 }

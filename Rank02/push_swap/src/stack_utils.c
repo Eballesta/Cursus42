@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eballest <eballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:23:34 by eballest          #+#    #+#             */
-/*   Updated: 2023/02/09 18:07:56 by eballest         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:24:41 by eballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_element	*new_element(int value, int index, int position)
 {
 	t_element	*element;
 
+	element = NULL;
 	element = malloc(sizeof(t_element));
 	if (!element)
 		return (NULL);
@@ -37,38 +38,48 @@ t_element	*new_element(int value, int index, int position)
 	return (element);
 }
 
-int		is_ordered(t_stack *a)
+int	is_ordered(t_stack *a)
 {
-    t_element   *aux;
+	t_element	*aux;
 
-    aux = a->first;
-    while (aux->next != NULL)
-    {
-        if (aux->index < aux->next->index)
-            return (-1);
-        aux = aux->next;
-    }
-    return (0);
-}
-
-void	proves(t_stack *a, t_stack *b)
-{
-	write(1, "stack a:\n", 9);
-	mostra(a->first);
-	write(1, "stack b:\n", 9);
-	mostra(b->first);
-}
-
-void	mostra(t_element *a)
-{
-	while (a)
+	aux = a->first;
+	while (aux->next != NULL)
 	{
-		printf("\nelement: %d\n", a->value);
-		printf("ind = %i\n", a->index);
-		printf("pos = %i\n", a->position);
-		printf("next = %p\n", a->next);
-		a = a->next;
+		if (aux->value > aux->next->value)
+			return (-1);
+		aux = aux->next;
 	}
-	if (a == NULL)
-		printf("\n\nHas aplegat al final de la llista\n\n");
+	return (0);
+}
+
+int	min_stack(t_stack *a)
+{
+	t_element	*aux;
+	int			min;
+
+	min = a->first->index;
+	aux = a->first->next;
+	while (aux != NULL)
+	{
+		if (aux->index < min)
+			min = aux->index;
+		aux = aux->next;
+	}
+	return (min);
+}
+
+int	max_stack(t_stack *a)
+{
+	t_element	*aux;
+	int			max;
+
+	max = a->first->index;
+	aux = a->first->next;
+	while (aux != NULL)
+	{
+		if (aux->index > max)
+			max = aux->index;
+		aux = aux->next;
+	}
+	return (max);
 }

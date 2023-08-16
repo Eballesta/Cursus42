@@ -6,13 +6,19 @@
 #    By: eballest <eballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 17:11:25 by eballest          #+#    #+#              #
-#    Updated: 2023/02/09 18:34:18 by eballest         ###   ########.fr        #
+#    Updated: 2023/08/16 10:12:58 by eballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CFLAGS = -Wall -Wextra -Werror
-SRCS = push_swap.c push_swap_utils.c sort_stacks.c sort_big_stacks.c operations.c double_operations.c
+SRCS = 	push_swap.c\
+		src/stack_utils.c\
+		src/sort_stacks.c\
+		src/sort_big_stacks.c\
+		src/operations.c\
+		src/double_operations.c\
+		src/utils.c
 
 OBJS = $(SRCS:.c=.o)
 DEPS = $(SRCS:.c=.d)
@@ -31,7 +37,7 @@ all:
 
 $(NAME):: $(OBJS)
 	@$(CC) $(OBJS) $(LIBFT) -o $@
-	@echo "$(GREEN)push_swap compiled$(NC)"
+	@echo "$(GREEN)Compiled$(NC)"
 
 $(NAME)::
 	@echo -n
@@ -41,7 +47,7 @@ $(NAME)::
 clean:
 	@rm -f $(OBJS) $(DEPS)
 	@$(MAKE) clean -C libft
-	@echo "$(RED)\nDestruction successful\n$(NC)"
+	@echo "$(RED)Successfuly clean$(NC)"
 
 fclean: clean
 	@rm -f $(NAME) $(LIBFT)

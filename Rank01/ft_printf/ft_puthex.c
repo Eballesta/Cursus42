@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eballest <eballest@student.42barcel>       +#+  +:+       +#+        */
+/*   By: eballest <eballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:46:36 by eballest          #+#    #+#             */
-/*   Updated: 2022/10/15 19:32:54 by eballest         ###   ########.fr       */
+/*   Updated: 2023/08/16 10:49:13 by eballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ static void	canviarbase(unsigned int nbr, char *base, int *len)
 	if (*len != -1)
 	{
 		if (write(1, &base[nbr % 16], 1) != 1)
-		*len = -1;
+			*len = -1;
 	}
 }

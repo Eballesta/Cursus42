@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eballest <eballest@student.42barcel>       +#+  +:+       +#+        */
+/*   By: eballest <eballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:42:37 by eballest          #+#    #+#             */
-/*   Updated: 2022/09/26 20:02:14 by eballest         ###   ########.fr       */
+/*   Updated: 2023/08/16 10:49:34 by eballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	**ft_split(char const *s, char c)
 		{
 			free_mallocs(r, word - 1);
 			return (NULL);
-		}	
+		}
 		i = i + len;
 	}
 	r[word - 1] = NULL;
